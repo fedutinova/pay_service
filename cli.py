@@ -22,3 +22,5 @@ def run(
         case Apps.background_tasks:
             # TODO: make background tasks
             pass
+
+cli()
