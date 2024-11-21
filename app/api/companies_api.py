@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends
 from app.db import get_session
 from app.exceptions import DuplicateException
-from app.logger import logger
 from app.schemas.company_schemas import CompanySchema
 from app.services.company_service import company_service
 from starlette.responses import Response

@@ -9,7 +9,7 @@ types:
 
 migration:
 	@echo "running migrations..."
-	alembic revision --autogenerate -m "inittial migration1"
+	alembic revision --autogenerate -m "initial migration"
 
 
 start:
