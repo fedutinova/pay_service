@@ -11,10 +11,9 @@ class Apps(str, Enum):
     api = "api"
     background_tasks = "background_tasks"
 
+
 @cli.command(help="Run API app")
-def run(
-    app: Annotated[Apps, Argument(help="App to run")] = Apps.api
-):
+def run(app: Annotated[Apps, Argument(help="App to run")] = Apps.api):
     match app:
         case Apps.api:
             run_api_app()
@@ -22,5 +21,6 @@ def run(
         case Apps.background_tasks:
             # TODO: make background tasks
             pass
+
 
 cli()

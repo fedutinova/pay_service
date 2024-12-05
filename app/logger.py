@@ -70,36 +70,36 @@ def configure_default_logging_by_structlog(
         logs_render,
     ]
 
-    base_config ={
-            "version": 1,
-            "disable_existing_loggers": False,
-            "formatters": {
-                "default": {
-                    "()": structlog.stdlib.ProcessorFormatter,
-                    "processors": processor,
-                    "foreign_pre_chain": pre_chain,
-                }
+    base_config = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "default": {
+                "()": structlog.stdlib.ProcessorFormatter,
+                "processors": processor,
+                "foreign_pre_chain": pre_chain,
+            }
+        },
+        "handlers": {
+            "console": {
+                "level": "DEBUG",
+                "class": "logging.StreamHandler",
+                "formatter": "default",
             },
-            "handlers": {
-                "console": {
-                    "level": "DEBUG",
-                    "class": "logging.StreamHandler",
-                    "formatter": "default",
-                },
-                "null": {
-                    "class": "logging.NullHandler",
-                },
+            "null": {
+                "class": "logging.NullHandler",
             },
-            "root": {
-                "handlers": ["console"],
-                "level": level,
-            },
-            "loggers": {
-                **(
-                    {"sqlalchemy.engine.Engine": {"level": logging.INFO}}
-                    if enable_sql_logs
-                    else {}
-                )
-            },
-        }
+        },
+        "root": {
+            "handlers": ["console"],
+            "level": level,
+        },
+        "loggers": {
+            **(
+                {"sqlalchemy.engine.Engine": {"level": logging.INFO}}
+                if enable_sql_logs
+                else {}
+            )
+        },
+    }
     dictConfig(base_config)

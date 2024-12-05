@@ -15,3 +15,12 @@ migration:
 start:
 	@echo "starting app..."
 	poetry run python cli.py api
+
+
+test_with_cov:
+	@echo "running tests with coverage..."
+	pytest --cov=app --cov-report=term-missing
+
+test:
+	@echo "running tests..."
+	pytest -v
