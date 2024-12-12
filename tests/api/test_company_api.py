@@ -10,5 +10,5 @@ async def test_create_company(add_mock, client: TestClient, session):
         "company_id": 1,
         "name": "Test Company",
     }
-    response = await client.post("/companies", json=company_data)
+    response = client.post("/companies", json=company_data)
     assert response.status_code == 201

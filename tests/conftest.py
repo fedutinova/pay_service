@@ -1,3 +1,4 @@
+import aiosonic
 from fastapi.testclient import TestClient
 from httpx import AsyncClient
 import pytest
@@ -45,7 +46,7 @@ async def session(db):
         yield session
 
 
-@pytest_asyncio.fixture(scope="function")
-async def client():
-    async with AsyncClient(app=get_app(), base_url="http://test") as client:
+@pytest.fixture(scope="function")
+def client():
+    with TestClient(app=get_app(), base_url="http://testserver") as client:
         yield client
