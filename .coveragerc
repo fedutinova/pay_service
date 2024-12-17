@@ -1,0 +1,9 @@
+[run]
+omit =
+    app/logger.py
+    app/app.py
+    app/db.py
+    app/exceptions.py
+    app/main.py
+    app/api/routes.py
+    app/schemas/misc_schemas.py

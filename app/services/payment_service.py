@@ -10,6 +10,7 @@ from app.enums import PaymentStatus
 
 logger = structlog.get_logger()
 
+
 class PaymentService:
     def __init__(self):
         self.repo = payment_repo
