@@ -1,3 +1,4 @@
+import httpx
 from fastapi import APIRouter, Depends
 from app.db import get_session
 from app.exceptions import DuplicateException

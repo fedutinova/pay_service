@@ -1,10 +1,8 @@
-import aiosonic
+
 from fastapi.testclient import TestClient
-from httpx import AsyncClient
 import pytest
 import pytest_asyncio
 
-from sqlalchemy import MetaData
 from testcontainers.postgres import PostgresContainer
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
